@@ -1,0 +1,13 @@
+name: "Run SCA analysis"
+on:
+    push:
+    workflow_dispatch:
+
+jobs:
+    run-sca-analysis:
+        name: Run SCA analysis
+        uses: './.github/workflows/reusable-run-sca-action.yml'
+        with:
+            severity: critical # omitting severity will only report and not fail
+            manifest-path: 'pom.xml'
+        secrets: inherit
